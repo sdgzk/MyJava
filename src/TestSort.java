@@ -28,7 +28,6 @@ public class TestSort {
 		case 3:
 			s.selectSort(a);
 			break;
-
 		}
 }
 
