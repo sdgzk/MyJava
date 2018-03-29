@@ -50,6 +50,7 @@ public class TestSort {
 	// 简单选择排序
 	private void selectSort(int[] a) {
 		int len = a.length;
+		
 		System.out.println("排序后的数组为："+Arrays.toString(a)); 
 		
 
