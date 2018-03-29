@@ -1,9 +1,13 @@
 
+
 public class MyJava {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
- System.out.println("ssddder");
-	}
-
+     
+		MyJava mj = new MyJava();
+		
+		Fenzi fz = new Fenzi();
+		fz.add();
+ 	}
+ 
 }
