@@ -5,58 +5,58 @@ import java.lang.reflect.Constructor;
 
 
 /* 
- * Í¨¹ıClass¶ÔÏó¿ÉÒÔ»ñÈ¡Ä³¸öÀàÖĞµÄ£º¹¹Ôì·½·¨¡¢³ÉÔ±±äÁ¿¡¢³ÉÔ±·½·¨£»²¢·ÃÎÊ³ÉÔ±£» 
+ * é€šè¿‡Classå¯¹è±¡å¯ä»¥è·å–æŸä¸ªç±»ä¸­çš„ï¼šæ„é€ æ–¹æ³•ã€æˆå‘˜å˜é‡ã€æˆå‘˜æ–¹æ³•ï¼›å¹¶è®¿é—®æˆå‘˜ï¼› 
  *  
- * 1.»ñÈ¡¹¹Ôì·½·¨£º 
- *      1).ÅúÁ¿µÄ·½·¨£º 
- *          public Constructor[] getConstructors()£ºËùÓĞ"¹«ÓĞµÄ"¹¹Ôì·½·¨ 
-            public Constructor[] getDeclaredConstructors()£º»ñÈ¡ËùÓĞµÄ¹¹Ôì·½·¨(°üÀ¨Ë½ÓĞ¡¢ÊÜ±£»¤¡¢Ä¬ÈÏ¡¢¹«ÓĞ) 
+ * 1.è·å–æ„é€ æ–¹æ³•ï¼š 
+ *      1).æ‰¹é‡çš„æ–¹æ³•ï¼š 
+ *          public Constructor[] getConstructors()ï¼šæ‰€æœ‰"å…¬æœ‰çš„"æ„é€ æ–¹æ³• 
+            public Constructor[] getDeclaredConstructors()ï¼šè·å–æ‰€æœ‰çš„æ„é€ æ–¹æ³•(åŒ…æ‹¬ç§æœ‰ã€å—ä¿æŠ¤ã€é»˜è®¤ã€å…¬æœ‰) 
       
- *      2).»ñÈ¡µ¥¸öµÄ·½·¨£¬²¢µ÷ÓÃ£º 
- *          public Constructor getConstructor(Class... parameterTypes):»ñÈ¡µ¥¸öµÄ"¹«ÓĞµÄ"¹¹Ôì·½·¨£º 
- *          public Constructor getDeclaredConstructor(Class... parameterTypes):»ñÈ¡"Ä³¸ö¹¹Ôì·½·¨"¿ÉÒÔÊÇË½ÓĞµÄ£¬»òÊÜ±£»¤¡¢Ä¬ÈÏ¡¢¹«ÓĞ£» 
+ *      2).è·å–å•ä¸ªçš„æ–¹æ³•ï¼Œå¹¶è°ƒç”¨ï¼š 
+ *          public Constructor getConstructor(Class... parameterTypes):è·å–å•ä¸ªçš„"å…¬æœ‰çš„"æ„é€ æ–¹æ³•ï¼š 
+ *          public Constructor getDeclaredConstructor(Class... parameterTypes):è·å–"æŸä¸ªæ„é€ æ–¹æ³•"å¯ä»¥æ˜¯ç§æœ‰çš„ï¼Œæˆ–å—ä¿æŠ¤ã€é»˜è®¤ã€å…¬æœ‰ï¼› 
  *       
- *          µ÷ÓÃ¹¹Ôì·½·¨£º 
+ *          è°ƒç”¨æ„é€ æ–¹æ³•ï¼š 
  *          Constructor-->newInstance(Object... initargs) 
  */  
 public class Constructors {  
   
     public static void main(String[] args) throws Exception {  
-        //1.¼ÓÔØClass¶ÔÏó  
+        //1.åŠ è½½Classå¯¹è±¡  
         Class clazz = Class.forName("com.fanshe.Student");  
           
           
-        //2.»ñÈ¡ËùÓĞ¹«ÓĞ¹¹Ôì·½·¨  
-        System.out.println("**********************ËùÓĞ¹«ÓĞ¹¹Ôì·½·¨*********************************");  
+        //2.è·å–æ‰€æœ‰å…¬æœ‰æ„é€ æ–¹æ³•  
+        System.out.println("**********************æ‰€æœ‰å…¬æœ‰æ„é€ æ–¹æ³•*********************************");  
         Constructor[] conArray = clazz.getConstructors();  
         for(Constructor c : conArray){  
             System.out.println(c);  
         }  
           
           
-        System.out.println("************ËùÓĞµÄ¹¹Ôì·½·¨(°üÀ¨£ºË½ÓĞ¡¢ÊÜ±£»¤¡¢Ä¬ÈÏ¡¢¹«ÓĞ)***************");  
+        System.out.println("************æ‰€æœ‰çš„æ„é€ æ–¹æ³•(åŒ…æ‹¬ï¼šç§æœ‰ã€å—ä¿æŠ¤ã€é»˜è®¤ã€å…¬æœ‰)***************");  
         conArray = clazz.getDeclaredConstructors();  
         for(Constructor c : conArray){  
             System.out.println(c);  
         }  
           
-        System.out.println("*****************»ñÈ¡¹«ÓĞ¡¢ÎŞ²ÎµÄ¹¹Ôì·½·¨*******************************");  
+        System.out.println("*****************è·å–å…¬æœ‰ã€æ— å‚çš„æ„é€ æ–¹æ³•*******************************");  
         Constructor con = clazz.getConstructor(null);  
-        //1>¡¢ÒòÎªÊÇÎŞ²ÎµÄ¹¹Ôì·½·¨ËùÒÔÀàĞÍÊÇÒ»¸önull,²»Ğ´Ò²¿ÉÒÔ£ºÕâÀïĞèÒªµÄÊÇÒ»¸ö²ÎÊıµÄÀàĞÍ£¬ÇĞ¼ÇÊÇÀàĞÍ  
-        //2>¡¢·µ»ØµÄÊÇÃèÊöÕâ¸öÎŞ²Î¹¹Ôìº¯ÊıµÄÀà¶ÔÏó¡£  
+        //1>ã€å› ä¸ºæ˜¯æ— å‚çš„æ„é€ æ–¹æ³•æ‰€ä»¥ç±»å‹æ˜¯ä¸€ä¸ªnull,ä¸å†™ä¹Ÿå¯ä»¥ï¼šè¿™é‡Œéœ€è¦çš„æ˜¯ä¸€ä¸ªå‚æ•°çš„ç±»å‹ï¼Œåˆ‡è®°æ˜¯ç±»å‹  
+        //2>ã€è¿”å›çš„æ˜¯æè¿°è¿™ä¸ªæ— å‚æ„é€ å‡½æ•°çš„ç±»å¯¹è±¡ã€‚  
       
         System.out.println("con = " + con);  
-        //µ÷ÓÃ¹¹Ôì·½·¨  
+        //è°ƒç”¨æ„é€ æ–¹æ³•  
         Object obj = con.newInstance();  
     //  System.out.println("obj = " + obj);  
     //  Student stu = (Student)obj;  
           
-        System.out.println("******************»ñÈ¡Ë½ÓĞ¹¹Ôì·½·¨£¬²¢µ÷ÓÃ*******************************");  
+        System.out.println("******************è·å–ç§æœ‰æ„é€ æ–¹æ³•ï¼Œå¹¶è°ƒç”¨*******************************");  
         con = clazz.getDeclaredConstructor(char.class);  
         System.out.println(con);  
-        //µ÷ÓÃ¹¹Ôì·½·¨  
-        con.setAccessible(true);//±©Á¦·ÃÎÊ(ºöÂÔµô·ÃÎÊĞŞÊÎ·û)  
-        obj = con.newInstance('ÄĞ');  
+        //è°ƒç”¨æ„é€ æ–¹æ³•  
+        con.setAccessible(true);//æš´åŠ›è®¿é—®(å¿½ç•¥æ‰è®¿é—®ä¿®é¥°ç¬¦)  
+        obj = con.newInstance('ç”·');  
     }  
       
 }  
